@@ -90,5 +90,3 @@ public class BookingController implements Initializable {
         return specialistInfo;
     }
 }
-
-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
