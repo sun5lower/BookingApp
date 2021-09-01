@@ -78,7 +78,7 @@
                         <ListView fx:id="myListView" prefHeight="179.0" prefWidth="291.0" />
                     </children>
                 </HBox>
-                <Button fx:id="bookButton" alignment="CENTER" layoutX="139.0" layoutY="449.0" mnemonicParsing="false" onAction="#getInfo" style="-fx-background-radius: 0; -fx-background-color: #8079C1;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                <Button fx:id="bookButton" alignment="CENTER" layoutX="139.0" layoutY="449.0" mnemonicParsing="false" onAction="#book" style="-fx-background-radius: 0; -fx-background-color: #8079C1;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>

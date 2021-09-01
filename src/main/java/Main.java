@@ -8,6 +8,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+
 public class Main extends Application {
 
 
@@ -19,11 +26,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/menu.fxml"));
-        Scene scene = new Scene(root);
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.setTitle("Booking App");
         primaryStage.setResizable(false);
-
-        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }

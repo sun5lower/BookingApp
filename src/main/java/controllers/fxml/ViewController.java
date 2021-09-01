@@ -4,27 +4,32 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
+import javafx.scene.control.Label;
+
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 public class ViewController {
 
-    controllers.fxml.BookingController bookingController;
 
-    @FXML private Label dateLabel;
-    @FXML private Label specialistLabel;
+    @FXML Label dateLabel;
+    @FXML Label specialistLabel;
+    @FXML Label yourNameLabel;
+    @FXML Label yourNumberLabel;
 
-
-    public void initialize() {
-        bookingController = new BookingController();
-        ArrayList specialistInfo = bookingController.getSpecialistInfo();
-        System.out.println(specialistInfo);
+    public void displayName(String name) {
+        yourNameLabel.setText("Hello: " + name);
     }
 
-
-    SceneController sceneController = new SceneController();
-
-    public void menu(ActionEvent event) throws IOException {
-        sceneController.switchToMenu(event);
+    public void displayNumber(String number) {
+        yourNumberLabel.setText("Number: " + number);
     }
+
+    public void displaySpecialist(String specialist) {
+        specialistLabel.setText(specialist);
+    }
+
 }
