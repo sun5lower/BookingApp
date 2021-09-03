@@ -21,7 +21,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="9">
-      <module name="BookingApp" target="1.8" />
+      <module name="BookingApp" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

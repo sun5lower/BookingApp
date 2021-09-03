@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,8 +25,10 @@ import java.util.ResourceBundle;
 
 public class BookingController implements Initializable {
 
-    @FXML private ListView<String> myListView;
-    @FXML private Label specialistLabel;
+    @FXML
+    private ListView<String> myListView;
+    @FXML
+    private Label specialistLabel;
 
     String[] specialists = {"Lorem", "Ipsum", "Dolor"};
 
@@ -46,20 +49,22 @@ public class BookingController implements Initializable {
     }
 
 
-
     @FXML
     TextField enterNameField;
     @FXML
     TextField enterNumberField;
 
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
+    public void book(ActionEvent event) throws IOException, InterruptedException {
 
-    public void book(ActionEvent event) throws IOException{
+        String name = enterNameField.getText();
+        String number = enterNumberField.getText();
+        String specialist = currentSpec;
 
-        myListView.getItems().addAll(specialists);
 
         myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -69,9 +74,6 @@ public class BookingController implements Initializable {
             }
         });
 
-        String name = enterNameField.getText();
-        String number = enterNumberField.getText();
-        String specialist = currentSpec;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View.fxml"));
         root = loader.load();
@@ -82,11 +84,28 @@ public class BookingController implements Initializable {
         viewController.displayNumber(number);
         viewController.displaySpecialist(specialist);
 
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        validation(event);
 
     }
 
+    @FXML
+    Label errorLabel;
+
+    public void validation(ActionEvent event) throws InterruptedException {
+
+        String name = enterNameField.getText();
+        String number = enterNumberField.getText();
+        String specialist = currentSpec;
+
+        if (!name.equals("") && !number.equals("")) {
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } else {
+            errorLabel.setText("Fields must be filled to submit!");
+            errorLabel.setStyle("-fx-text-fill:red");
+        }
+    }
 }

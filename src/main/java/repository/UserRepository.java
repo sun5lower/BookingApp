@@ -9,10 +9,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class UserRepository {
 
-    private dbHandler dbHandler = new dbHandler();
+    private DBHandler dbHandler = new DBHandler();
 
     public void addUserToDB(User user) throws SQLException {
         Connection connection = dbHandler.getConnection();

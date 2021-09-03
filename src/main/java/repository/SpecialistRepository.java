@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class SpecialistRepository {
 
-    private dbHandler dbHandler = new dbHandler();
+    private DBHandler dbHandler = new DBHandler();
 
     public void addSpecialistToDB(Specialist specialist) throws SQLException {
         Connection connection = dbHandler.getConnection();
