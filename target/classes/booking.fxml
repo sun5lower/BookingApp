@@ -98,7 +98,7 @@
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Button>
-                <ChoiceBox fx:id="selectTimeMenu" layoutX="127.0" layoutY="355.0" prefWidth="150.0" />
+                <ChoiceBox fx:id="selectTimeMenu" layoutX="127.0" layoutY="331.0" prefWidth="150.0" />
             </children>
         </Pane>
     </children>
