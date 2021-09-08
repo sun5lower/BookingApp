@@ -27,8 +27,12 @@ public class BookingController implements Initializable {
     private ListView<String> myListView;
     @FXML
     private Label specialistLabel;
+    @FXML
+    private ChoiceBox<String> selectTimeMenu;
 
-    String[] specialists = {"Masseuse", "Hairdresser", "Beauty Therapist"};
+    private String[] timeslots = {"10AM","12AM","2PM","4PM"};
+
+    private String[] specialists = {"Masseuse", "Hairdresser", "Beauty Therapist"};
 
     public String currentSpec;
 
@@ -44,6 +48,8 @@ public class BookingController implements Initializable {
                 specialistLabel.setText("You chose: " + currentSpec);
             }
         });
+
+        selectTimeMenu.getItems().addAll(timeslots);
     }
 
 
@@ -65,6 +71,7 @@ public class BookingController implements Initializable {
         String number = enterNumberField.getText();
         LocalDate date = dateView.getValue();
         String specialist = currentSpec;
+        String time = selectTimeMenu.getValue();
 
 
         myListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -85,6 +92,7 @@ public class BookingController implements Initializable {
         viewController.displayNumber(number);
         viewController.displayDate(date);
         viewController.displaySpecialist(specialist);
+        viewController.displayTime(time);
 
         validation(event);
 
@@ -108,16 +116,4 @@ public class BookingController implements Initializable {
             errorLabel.setStyle("-fx-text-fill:red");
         }
     }
-
-    @FXML MenuButton selectTimeMenu;
-    public void setTime() {
-//        selectTimeMenu.selectedItemProperty().addListener(new ChangeListener<String>() {
-//            @Override
-//            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-//                currentSpec = myListView.getSelectionModel().getSelectedItem();
-//                specialistLabel.setText("You chose: " + currentSpec);
-//            }
-//        });
-    }
-
 }

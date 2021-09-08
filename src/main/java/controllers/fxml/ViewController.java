@@ -18,13 +18,14 @@ public class ViewController {
     @FXML Label yourNameLabel;
     @FXML Label yourNumberLabel;
     @FXML Label dateLabel;
+    @FXML Label timeLabel;
 
     public void displayName(String name) {
-        yourNameLabel.setText("Your name: " + name);
+        yourNameLabel.setText("Name: " + name);
     }
 
     public void displayNumber(String number) {
-        yourNumberLabel.setText("Your number: " + number);
+        yourNumberLabel.setText("Number : " + number);
     }
 
     public void displaySpecialist(String specialist) {
@@ -34,6 +35,10 @@ public class ViewController {
 
     public void displayDate(LocalDate date) {
         dateLabel.setText(date.toString());
+    }
+
+    public void displayTime(String time) {
+        timeLabel.setText(time);
     }
 
 
