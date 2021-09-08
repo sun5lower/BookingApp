@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.fxml.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.fxml.MenuController">
     <children>
         <ImageView fitHeight="641.0" fitWidth="823.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -35,7 +35,7 @@
                     <font>
                         <Font size="20.0" />
                     </font></Button>
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#view" prefHeight="43.0" prefWidth="162.0" text="View Bookings">
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#bookingDisplay" prefHeight="43.0" prefWidth="162.0" text="View Bookings">
                     <VBox.margin>
                         <Insets top="5.0" />
                     </VBox.margin>

@@ -1,8 +1,6 @@
 package repository;
 
 import entity.Specialist;
-import entity.Timeslot;
-import types.Status;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

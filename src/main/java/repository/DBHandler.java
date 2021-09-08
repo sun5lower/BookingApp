@@ -1,12 +1,14 @@
 package repository;
 
+
+import org.apache.commons.configuration.PropertiesConfiguration;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
+
 
 public class DBHandler {
 
@@ -23,7 +25,7 @@ public class DBHandler {
         PropertiesConfiguration databaseProperties = new PropertiesConfiguration();
         try {
             databaseProperties.load("database.properties");
-        } catch (ConfigurationException e) {
+        } catch (org.apache.commons.configuration.ConfigurationException e) {
             e.printStackTrace();
         }
 

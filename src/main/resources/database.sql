@@ -22,17 +22,23 @@ SET GLOBAL  time_zone = '+1:00';
     select * from specialist;
 
 
-    CREATE TABLE IF NOT EXISTS Timeslot(
+ CREATE TABLE UsersBookings(
     id int not null auto_increment,
-    courseId varchar(100),
-    examDate varchar(100),
-    studentId varchar(100),
-    result int not null,
-    last_updated timestamp default current_timestamp,
-    created_at timestamp default current_timestamp,
+    userId int not null,
+    specialistId int not null,
+    timeId int not null,
     primary key(id)
     );
+    drop table user;
 
-
-
-
+     CREATE TABLE IF NOT EXISTS User(
+    id int not null auto_increment,
+    name varchar(100) not null,
+    phoneNumber int not null,
+    specialist varchar(100) not null,
+    date varchar(100) not null,
+    primary key(id)
+    );
+    select * from user;
+    
+    use BookingApp;

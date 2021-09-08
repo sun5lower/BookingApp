@@ -10,16 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -30,7 +28,7 @@ public class BookingController implements Initializable {
     @FXML
     private Label specialistLabel;
 
-    String[] specialists = {"Lorem", "Ipsum", "Dolor"};
+    String[] specialists = {"Masseuse", "Hairdresser", "Beauty Therapist"};
 
     public String currentSpec;
 
@@ -43,16 +41,18 @@ public class BookingController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 currentSpec = myListView.getSelectionModel().getSelectedItem();
-                specialistLabel.setText(currentSpec);
+                specialistLabel.setText("You chose: " + currentSpec);
             }
         });
     }
 
 
     @FXML
-    TextField enterNameField;
+    private TextField enterNameField;
     @FXML
-    TextField enterNumberField;
+    private TextField enterNumberField;
+    @FXML
+    private DatePicker dateView;
 
 
     private Stage stage;
@@ -63,6 +63,7 @@ public class BookingController implements Initializable {
 
         String name = enterNameField.getText();
         String number = enterNumberField.getText();
+        LocalDate date = dateView.getValue();
         String specialist = currentSpec;
 
 
@@ -82,6 +83,7 @@ public class BookingController implements Initializable {
         ViewController viewController = loader.getController();
         viewController.displayName(name);
         viewController.displayNumber(number);
+        viewController.displayDate(date);
         viewController.displaySpecialist(specialist);
 
         validation(event);
@@ -95,17 +97,27 @@ public class BookingController implements Initializable {
 
         String name = enterNameField.getText();
         String number = enterNumberField.getText();
-        String specialist = currentSpec;
 
-        if (!name.equals("") && !number.equals("")) {
+        if (!name.equals("") && !number.equals("") && number.length() == 11) {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
         } else {
-            errorLabel.setText("Fields must be filled to submit!");
+            errorLabel.setText("Either fields are empty or the number entered was not 11 characters!");
             errorLabel.setStyle("-fx-text-fill:red");
         }
     }
+
+    @FXML MenuButton selectTimeMenu;
+    public void setTime() {
+//        selectTimeMenu.selectedItemProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+//                currentSpec = myListView.getSelectionModel().getSelectedItem();
+//                specialistLabel.setText("You chose: " + currentSpec);
+//            }
+//        });
+    }
+
 }

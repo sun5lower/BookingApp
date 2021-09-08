@@ -2,8 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +18,7 @@
     <children>
         <Pane prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #A19CD1;">
             <children>
-                <VBox alignment="CENTER_LEFT" layoutX="-6.0" layoutY="-6.0" prefHeight="607.0" prefWidth="406.0" style="-fx-background-color: #8079C1;">
+                <VBox alignment="CENTER_LEFT" layoutX="-6.0" layoutY="-6.0" prefHeight="607.0" prefWidth="406.0">
                     <children>
                         <HBox alignment="CENTER" prefHeight="47.0" prefWidth="233.0" style="-fx-background-color: #A19CD1; -fx-background-radius: 2;">
                             <children>
@@ -34,7 +37,7 @@
                                 </TextField>
                             </children>
                         </HBox>
-                        <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="377.0" style="-fx-opacity: 60%;" textAlignment="CENTER" textFill="RED">
+                        <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="376.0" style="-fx-opacity: 60%;" textAlignment="CENTER" textFill="RED">
                             <font>
                                 <Font name="System Bold" size="14.0" />
                             </font>
@@ -56,6 +59,14 @@
                                 <Insets top="40.0" />
                             </VBox.margin>
                         </HBox>
+                        <VBox alignment="CENTER" prefHeight="86.0" prefWidth="368.0">
+                            <children>
+                                <DatePicker fx:id="dateView" promptText="Select Date" style="-fx-opacity: 100%;" />
+                            </children>
+                            <VBox.margin>
+                                <Insets top="30.0" />
+                            </VBox.margin>
+                        </VBox>
                     </children>
                     <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -70,7 +81,7 @@
         </Pane>
         <Pane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #A19CD1;">
             <children>
-                <Label fx:id="specialistLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="23.0" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #8079C1; -fx-background-radius: 15;" text="Choose Specialist" textFill="WHITE">
+                <Label fx:id="specialistLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="23.0" prefHeight="35.0" prefWidth="226.0" style="-fx-background-color: #8079C1; -fx-background-radius: 15;" text="Please Choose" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
@@ -78,16 +89,27 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </padding>
                 </Label>
-                <HBox layoutX="56.0" layoutY="203.0" prefHeight="194.0" prefWidth="291.0">
+                <HBox layoutX="56.0" layoutY="100.0" prefHeight="194.0" prefWidth="291.0">
                     <children>
                         <ListView fx:id="myListView" prefHeight="179.0" prefWidth="291.0" />
                     </children>
                 </HBox>
-                <Button fx:id="bookButton" alignment="CENTER" layoutX="139.0" layoutY="449.0" mnemonicParsing="false" onAction="#book" style="-fx-background-radius: 0; -fx-background-color: #8079C1;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                <Button fx:id="bookButton" alignment="CENTER" layoutX="106.0" layoutY="500.0" mnemonicParsing="false" onAction="#book" style="-fx-background-radius: 0; -fx-background-color: #8079C1;" text="Confirm Booking" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="20.0" />
                     </font>
                 </Button>
+                <MenuButton fx:id="selectTImeMenu" alignment="CENTER" contentDisplay="BOTTOM" layoutX="124.0" layoutY="353.0" mnemonicParsing="false" onAction="#setTime" prefHeight="39.0" prefWidth="156.0" text="Select Time">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="10 AM" />
+                        <MenuItem mnemonicParsing="false" text="12 AM" />
+                        <MenuItem mnemonicParsing="false" text="2 PM" />
+                        <MenuItem mnemonicParsing="false" text="4 PM" />
+                    </items>
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </MenuButton>
             </children>
         </Pane>
     </children>
