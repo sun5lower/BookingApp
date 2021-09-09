@@ -1,5 +1,6 @@
 package controllers.fxml;
 
+import com.sun.istack.internal.NotNull;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -86,11 +87,14 @@ public class BookingController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View.fxml"));
         root = loader.load();
 
-
         ViewController viewController = loader.getController();
         viewController.displayName(name);
         viewController.displayNumber(number);
-        viewController.displayDate(date);
+        try {
+            viewController.displayDate(date);
+        } catch(NullPointerException ex) {
+            System.out.println("");
+        }
         viewController.displaySpecialist(specialist);
         viewController.displayTime(time);
 
@@ -105,14 +109,15 @@ public class BookingController implements Initializable {
 
         String name = enterNameField.getText();
         String number = enterNumberField.getText();
+        LocalDate date = dateView.getValue();
 
-        if (!name.equals("") && !number.equals("") && number.length() == 11) {
+        if ((!name.equals("") && !number.equals("") && number.length() == 6) && (!date.equals(""))) {
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } else {
-            errorLabel.setText("Either fields are empty or the number entered was not 11 characters!");
+            errorLabel.setText("All fields must be filled and number must be 6");
             errorLabel.setStyle("-fx-text-fill:red");
         }
     }

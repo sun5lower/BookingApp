@@ -24,14 +24,16 @@
             <Image url="@images/viewImage.png" />
          </image>
       </ImageView>
-        <HBox alignment="CENTER" layoutX="69.0" layoutY="172.0" prefHeight="257.0" prefWidth="663.0">
+        <HBox alignment="CENTER" layoutX="69.0" layoutY="130.0" prefHeight="257.0" prefWidth="663.0">
             <children>
-                <TableView prefHeight="257.0" prefWidth="559.0">
+                <TableView prefHeight="258.0" prefWidth="563.0">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="ID" />
-                        <TableColumn prefWidth="75.0" text="NAME" />
-                        <TableColumn prefWidth="132.5" text="PHONE NUMBER" />
-                        <TableColumn editable="false" prefWidth="92.5" sortable="false" text="SPECIALIST" />
+                        <TableColumn fx:id="ID" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="NAME" prefWidth="75.0" text="NAME" />
+                        <TableColumn fx:id="NUMBER" prefWidth="132.5" text="PHONE NUMBER" />
+                        <TableColumn fx:id="SPECIALIST" editable="false" prefWidth="92.5" sortable="false" text="SPECIALIST" />
+                  <TableColumn fx:id="DATE" editable="false" prefWidth="92.5" sortable="false" text="DATE" />
+                  <TableColumn fx:id="TIME" editable="false" prefWidth="92.5" sortable="false" text="TIME" />
                     </columns>
                 </TableView>
             </children>
@@ -43,7 +45,15 @@
             </font>
         </Label>
       <Line endX="480.29290771484375" endY="-70.0" layoutX="111.0" layoutY="70.0" startX="480.29290771484375" startY="-9.292888641357422" />
-      <TextField fx:id="viewingSearchField" alignment="CENTER" layoutX="326.0" layoutY="451.0" prefHeight="26.0" prefWidth="150.0" promptText="Search by name" />
-      <Button fx:id="lookupBtn" layoutX="353.0" layoutY="487.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="96.0" text="Look up" textFill="#701069" />
+      <TextField fx:id="viewingSearchField" alignment="CENTER" layoutX="325.0" layoutY="406.0" prefHeight="26.0" prefWidth="150.0" promptText="Search by name" />
+      <Button fx:id="lookupBtn" layoutX="209.0" layoutY="405.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="96.0" text="Look up" textFill="#701069">
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Button fx:id="deleteBtn" layoutX="522.0" layoutY="405.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #7a2396;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

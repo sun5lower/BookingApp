@@ -1,5 +1,6 @@
 package controllers.fxml;
 
+import com.sun.istack.internal.NotNull;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -21,7 +22,7 @@ public class ViewController {
     @FXML Label timeLabel;
 
     public void displayName(String name) {
-        yourNameLabel.setText("Name: " + name);
+        yourNameLabel.setText("Hey " + name + ", nice one!");
     }
 
     public void displayNumber(String number) {
@@ -31,7 +32,6 @@ public class ViewController {
     public void displaySpecialist(String specialist) {
         specialistLabel.setText(specialist);
     }
-
 
     public void displayDate(LocalDate date) {
         dateLabel.setText(date.toString());
