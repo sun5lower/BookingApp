@@ -8,25 +8,34 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import repository.DBHandler;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-public class DisplayBookingsController implements Initializable {
+public class LookupController implements Initializable {
+    DBHandler dbHandler = new DBHandler();
     SceneController sceneController = new SceneController();
+
     @FXML
     TextField viewingSearchField;
+
     @FXML
-    Button deleteBtn;
+    Button lookupBtn;
+
     @FXML
     TableView<User> TableView;
     @FXML
@@ -44,13 +53,36 @@ public class DisplayBookingsController implements Initializable {
 
     ObservableList<User> userObservableList = FXCollections.observableArrayList();
 
+    public void menu(ActionEvent event) throws IOException {
+        sceneController.switchToMenu(event);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void delete(ActionEvent actionEvent) throws SQLException, IOException {
         DBHandler dbHandler = new DBHandler();
         Connection connection = dbHandler.getConnection();
+        User user = TableView.getSelectionModel().getSelectedItem();
 
-        String query = "SELECT id, name, phoneNumber, specialist, date, time FROM user";
+        String query = "DELETE from User WHERE id =" + user.getId();
+
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(query);
+        statement.close();
+        System.out.println("Deleted successfully");
+        sceneController.switchToLookup(actionEvent);
+
+    }
+
+    public void search(ActionEvent actionEvent) throws SQLException {
+        Connection connection = dbHandler.getConnection();
+
+
+        String query = "SELECT id, name, phoneNumber, specialist, date, time FROM user WHERE phoneNumber = "
+                + viewingSearchField.getText();
 
         try {
             Statement statement = connection.createStatement();
@@ -75,7 +107,6 @@ public class DisplayBookingsController implements Initializable {
             DATE.setCellValueFactory(new PropertyValueFactory<>("date"));
             TIME.setCellValueFactory(new PropertyValueFactory<>("time"));
 
-
             TableView.setItems(userObservableList);
             FilteredList<User> filteredData = new FilteredList<>(userObservableList, b -> true);
 
@@ -98,7 +129,6 @@ public class DisplayBookingsController implements Initializable {
 
                     } else
                         return false;
-
                 });
             });
             SortedList<User> sortedData = new SortedList<>(filteredData);
@@ -110,24 +140,5 @@ public class DisplayBookingsController implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-    public void delete(ActionEvent actionEvent) throws SQLException, IOException {
-        DBHandler dbHandler = new DBHandler();
-        Connection connection = dbHandler.getConnection();
-        User user = TableView.getSelectionModel().getSelectedItem();
-
-        String query = "DELETE from User WHERE id =" + user.getId();
-
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(query);
-        statement.close();
-        System.out.println("Deleted successfully");
-        sceneController.switchToBookingDisplay(actionEvent);
-    }
-
-    public void menu(ActionEvent event) throws IOException {
-        sceneController.switchToMenu(event);
-    }
-
 }
+

@@ -28,20 +28,28 @@
         </HBox>
         <VBox alignment="CENTER" layoutX="283.0" layoutY="257.0" prefHeight="253.0" prefWidth="238.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#booking" prefHeight="43.0" prefWidth="162.0" text="Booking">
+                <Button mnemonicParsing="false" onAction="#booking" prefHeight="43.0" prefWidth="231.0" text="Book an Appointment">
                     <VBox.margin>
                         <Insets top="5.0" />
                     </VBox.margin>
                     <font>
                         <Font size="20.0" />
                     </font></Button>
-                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#bookingDisplay" prefHeight="43.0" prefWidth="162.0" text="View Bookings">
+                <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#lookup" prefHeight="43.0" prefWidth="231.0" text="View Bookings">
                     <VBox.margin>
                         <Insets top="5.0" />
                     </VBox.margin>
                     <font>
                         <Font size="20.0" />
                     </font></Button>
+                <Button mnemonicParsing="false" onAction="#bookingDisplay" prefHeight="43.0" prefWidth="231.0" text="Admin View">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="5.0" />
+                    </VBox.margin>
+                </Button>
                 <Label fx:id="time" />
                 <Label fx:id="date" layoutX="66.0" layoutY="148.0" />
             </children>

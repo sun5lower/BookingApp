@@ -71,14 +71,14 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Label>
-                  <Label text="See You Soon!">
-                     <font>
-                        <Font name="System Italic" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
+                        <Label text="See You Soon!">
+                            <font>
+                                <Font name="System Italic" size="18.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </Label>
                     </children>
                 </VBox>
             </children>

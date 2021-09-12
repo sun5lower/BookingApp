@@ -21,4 +21,7 @@ public class MenuController {
     public void bookingDisplay(ActionEvent event) throws IOException {
         sceneController.switchToBookingDisplay(event);
     }
+    public void lookup(ActionEvent event) throws IOException {
+        sceneController.switchToLookup(event);
+    }
 }

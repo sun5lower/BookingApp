@@ -15,11 +15,16 @@ import java.time.LocalDate;
 
 public class ViewController {
 
-    @FXML Label specialistLabel;
-    @FXML Label yourNameLabel;
-    @FXML Label yourNumberLabel;
-    @FXML Label dateLabel;
-    @FXML Label timeLabel;
+    @FXML
+    Label specialistLabel;
+    @FXML
+    Label yourNameLabel;
+    @FXML
+    Label yourNumberLabel;
+    @FXML
+    Label dateLabel;
+    @FXML
+    Label timeLabel;
 
     public void displayName(String name) {
         yourNameLabel.setText("Hey " + name + ", nice one!");

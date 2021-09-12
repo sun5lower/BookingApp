@@ -17,7 +17,7 @@ public class DBHandler {
     private static String connectionUrl;
     private static Connection connection;
 
-    DBHandler() {
+    public DBHandler() {
         getSetDatabaseInfo();
     }
 
